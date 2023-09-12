@@ -29,7 +29,7 @@ Bu sınıf, depo işlemlerinin gerçekleştirileceği metodları içerecektir. D
 
 - Umut - `urunCikisi()`: Bu metot, depodan ürün çıkışı yapmak için kullanılacaktır. Kullanıcıdan ürünün id numarası ve çıkış miktarı alınacaktır. Ürün miktarı güncellenecek ve eğer miktar 0'dan küçük olursa, sadece miktarın 0 olduğu görüntülenecektir. Ürün tanımı silinmeyecektir.
 
-## 3. Runner Sınıfı
+## 3. Runner Sınıfı - Sinan
 
 Bu sınıf, projenin çalıştırılmasını sağlayacak bir Runner sınıfıdır. Bu sınıf içinde DepoSistemi sınıfının nesnesi oluşturulacak ve ilgili metotlar çağrılacaktır.
 
