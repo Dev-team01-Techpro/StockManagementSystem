@@ -16,18 +16,10 @@ public class DepoSistemi {
             System.out.println("Lutfen birim giriniz.");
             String birim=scan.nextLine();
 
+            int id =idTanimlama();
             HashMap<Integer, PojoUrun> map = new HashMap<>();
 
-            PojoUrun urun = new PojoUrun();
-
-            int id =idTanimlama();
-
-
-
-            urun.setUrunIsmi(urunIsmi);
-            urun.setUretici(uretici);
-            urun.setBirim(birim);
-            urun.setId(id);
+            PojoUrun urun = new PojoUrun(id,urunIsmi,uretici,birim);
 
 
             map.put(id, urun);

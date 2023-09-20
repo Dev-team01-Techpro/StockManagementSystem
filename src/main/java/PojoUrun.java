@@ -8,6 +8,17 @@ public class PojoUrun {
     private String raf = "-" ;
 
 
+    public PojoUrun(){
+
+    }
+
+    public PojoUrun(int id, String urunIsmi, String uretici, String birim) {
+        this.id = id;
+        this.urunIsmi = urunIsmi;
+        this.uretici = uretici;
+        this.birim = birim;
+    }
+
     public int getId() {
 
         return id;
