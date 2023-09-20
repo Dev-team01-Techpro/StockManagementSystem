@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class DepoSistemi {
     Scanner scan=new Scanner(System.in);
+
     static int urunId = 0;
+    static ArrayList<HashMap<Integer, PojoUrun>> list = new ArrayList<>();
+
 
     public HashMap urunTanimlama(ArrayList<HashMap<Integer,PojoUrun>> list) {
 
