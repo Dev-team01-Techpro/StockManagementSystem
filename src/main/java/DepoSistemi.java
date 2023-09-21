@@ -9,7 +9,7 @@ public class DepoSistemi {
     static ArrayList<HashMap<Integer, PojoUrun>> list = new ArrayList<>();
 
 
-    public HashMap urunTanimlama(ArrayList<HashMap<Integer,PojoUrun>> list) {
+    public void urunTanimlama(ArrayList<HashMap<Integer,PojoUrun>> list) {
 
 
             System.out.println("Lutfen urun ismi giriniz.");
@@ -28,7 +28,7 @@ public class DepoSistemi {
             map.put(id, urun);
             list.add(map);
 
-            return map;
+
         }
 
 
