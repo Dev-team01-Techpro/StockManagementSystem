@@ -21,7 +21,8 @@ Bu sınıf, depo işlemlerinin gerçekleştirileceği metodları içerecektir. D
 
 - Cahit - `urunTanimlama()`: Bu metot, kullanıcıdan ürün adı, üretici ve birim bilgilerini alarak yeni bir ürün tanımlayacaktır. Her ürün için bir id oluşturulacak ve bu id ile birlikte ürün bilgileri bir Map veri yapısında saklanacaktır. Ürünün miktarı başlangıçta 0 olacak ve raf bilgisi "-" olarak atanacaktır.
 
-- Eda -`urunListele()`: Bu metot, tanımlanan ürünleri listelemek için kullanılacaktır. Ürünlerin id, isim, üretici, miktar, birim ve raf bilgileri görüntülenecektir. Eğer ürünün miktarı veya raf bilgisi tanımlanmamışsa, varsayılan değerler kullanılacaktır.
+- Eda -`urunListele()`: Bu metot, tanımlanan ürünleri listelemek için kullanılacaktır. 
+- Ürünlerin id, isim, üretici, miktar, birim ve raf bilgileri görüntülenecektir. Eğer ürünün miktarı veya raf bilgisi tanımlanmamışsa, varsayılan değerler kullanılacaktır.
 
 - Ertugrul - `urunGirisi()`: Bu metot, depoya ürün girişi yapmak için kullanılacaktır. Kullanıcıdan ürünün id numarası ve giriş miktarı alınacaktır. Bu bilgilere göre, ilgili ürünün miktarı güncellenecektir.
 

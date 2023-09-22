@@ -9,6 +9,8 @@ public class Main {
 
         depo.urunTanimlama(DepoSistemi.list);
 
+        depo.urunListele();
+
     }
 
 }

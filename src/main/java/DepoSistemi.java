@@ -19,6 +19,9 @@ public class DepoSistemi {
             System.out.println("Lutfen birim giriniz.");
             String birim=scan.nextLine();
 
+
+
+
             int id =idTanimlama();
             HashMap<Integer, PojoUrun> map = new HashMap<>();
 
@@ -51,7 +54,29 @@ public class DepoSistemi {
 
 
 
-    public static void urunListele() {
+    public  void urunListele() {
+
+        System.out.println("id     ismi    ureticisi   miktar    birimi    raf");
+        System.out.println("--------------------------------------------------");
+
+        for ( HashMap<Integer, PojoUrun> w:   list ) {
+            for ( PojoUrun each : w.values() ) {
+
+                System.out.printf("%-6s %-8s %-8s %-8s %-8s %-8s %n",
+                        each.getId(),
+                each.getUrunIsmi(),
+                each.getUretici(),
+                each.getMiktar(),
+                each.getBirim(),
+                each.getRaf()
+                        );
+//                System.out.println(each.getMiktar());
+
+
+            }
+
+        }
+
         //Bu metot, tanımlanan ürünleri listelemek için kullanılacaktır.
         // Ürünlerin id, isim, üretici, miktar, birim ve raf bilgileri görüntülenecektir.
         // Eğer ürünün miktarı veya raf bilgisi tanımlanmamışsa, varsayılan değerler kullanılacaktır.
