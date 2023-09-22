@@ -30,6 +30,7 @@ public class DepoSistemi {
 
             map.put(id, urun);
             list.add(map);
+            urunListele();
 
 
         }
@@ -83,15 +84,90 @@ public class DepoSistemi {
 
     }
 
-    public static void urunGirisi() {
+    public void urunGirisi(int id, int miktar ) {
+
+        int yeniMiktar;
+
+        for (HashMap<Integer, PojoUrun> w : list ) {
+            for ( Integer each : w.keySet() ) {
+
+                if(each==id){
+
+                    PojoUrun urun=w.get(id);
+
+                    yeniMiktar=urun.getMiktar()+miktar;
+                    urun.setMiktar(yeniMiktar);
+                    urunListele();
+
+                }else System.out.println("Ürün bulunamadı..");
+
+            }
+
+
+        }
+
+//        Ertugrul - `urunGirisi()`: Bu metot,
+//        depoya ürün girişi yapmak için kullanılacaktır.
+//        Kullanıcıdan ürünün id numarası ve giriş miktarı alınacaktır. Bu bilgilere göre, ilgili ürünün miktarı güncellenecektir.
+
 
     }
 
-    public static void urunuRafaKoy() {
+    public void urunCikisi(int id, int miktar) {
+
+        int yeniMiktar;
+
+        for (HashMap<Integer, PojoUrun> w : list ) {
+            for ( Integer each : w.keySet() ) {
+
+                if(each==id){
+
+                    PojoUrun urun=w.get(id);
+
+                    yeniMiktar=urun.getMiktar()-miktar;
+
+                    if(yeniMiktar<0){
+                        yeniMiktar=0;
+                    }
+
+                    urun.setMiktar(yeniMiktar);
+                    urunListele();
+
+                }else System.out.println("Ürün bulunamadı..");
+
+            }
+
+
+        }
 
     }
 
-    public static void urunCikisi() {
+    public void urunRafaKoy(int id, String raf) {
+
+        for (HashMap<Integer, PojoUrun> w : list ) {
+            for ( Integer each : w.keySet() ) {
+
+                if(each==id){
+
+                    PojoUrun urun=w.get(id);
+
+                    urun.setRaf(raf);
+                    urunListele();
+
+
+
+                }else System.out.println("Ürün bulunamadı..");
+
+            }
+
+
+        }
+
+
+
+
+//        Ahmet - `urunuRafaKoy()`: Bu metot, bir ürünü rafa yerleştirmek için kullanılacaktır.
+//        Kullanıcıdan ürünün id numarası ve raf bilgisi alınacaktır. İlgili ürün, verilen raf numarasına göre güncellenecektir.
 
     }
 

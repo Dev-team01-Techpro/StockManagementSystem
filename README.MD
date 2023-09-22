@@ -24,7 +24,9 @@ Bu sınıf, depo işlemlerinin gerçekleştirileceği metodları içerecektir. D
 - Eda -`urunListele()`: Bu metot, tanımlanan ürünleri listelemek için kullanılacaktır. 
 - Ürünlerin id, isim, üretici, miktar, birim ve raf bilgileri görüntülenecektir. Eğer ürünün miktarı veya raf bilgisi tanımlanmamışsa, varsayılan değerler kullanılacaktır.
 
-- Ertugrul - `urunGirisi()`: Bu metot, depoya ürün girişi yapmak için kullanılacaktır. Kullanıcıdan ürünün id numarası ve giriş miktarı alınacaktır. Bu bilgilere göre, ilgili ürünün miktarı güncellenecektir.
+- Ertugrul - `urunGirisi()`: Bu metot, 
+- depoya ürün girişi yapmak için kullanılacaktır.
+- Kullanıcıdan ürünün id numarası ve giriş miktarı alınacaktır. Bu bilgilere göre, ilgili ürünün miktarı güncellenecektir.
 
 - Ahmet - `urunuRafaKoy()`: Bu metot, bir ürünü rafa yerleştirmek için kullanılacaktır. Kullanıcıdan ürünün id numarası ve raf bilgisi alınacaktır. İlgili ürün, verilen raf numarasına göre güncellenecektir.
 

@@ -9,7 +9,14 @@ public class Main {
 
         depo.urunTanimlama(DepoSistemi.list);
 
-        depo.urunListele();
+        depo.urunGirisi(1,100);
+
+        depo.urunGirisi(1,500);
+
+        depo.urunCikisi(1,1000);
+
+        depo.urunRafaKoy(1,"ananas");
+
 
     }
 
