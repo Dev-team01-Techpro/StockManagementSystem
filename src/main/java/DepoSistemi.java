@@ -3,6 +3,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class DepoSistemi {
+    // ANSI renk kodları
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
+
     Scanner scan = new Scanner(System.in);
     static int urunId = 0;
     static ArrayList<HashMap<Integer, PojoUrun>> list = new ArrayList<>();
@@ -14,6 +21,7 @@ public class DepoSistemi {
         String uretici = scan.nextLine();
         System.out.println("Lutfen birim giriniz.");
         String birim = scan.nextLine();
+        System.out.println();
 
         int id = idTanimlama();
         HashMap<Integer, PojoUrun> map = new HashMap<>();
@@ -22,7 +30,7 @@ public class DepoSistemi {
 
         map.put(id, urun);
         list.add(map);
-        urunListele();
+        urunListele("ÜRÜNLER");
 
     }
 
@@ -32,20 +40,22 @@ public class DepoSistemi {
     }
 
 
-    public void urunListele() {
+    public void urunListele(String title) {
 
-        System.out.println("id     ismi    ureticisi   miktar    birimi    raf");
-        System.out.println("--------------------------------------------------");
+        fontColor(title, "green");
+        fontColor("id     ismi    ureticisi   miktar    birimi    raf", "yellow");
+        fontColor("-".repeat(50), "blue");
 
         for (HashMap<Integer, PojoUrun> w : list) {
             for (PojoUrun each : w.values()) {
 
-                System.out.printf("%-6s %-8s %-8s %-8s %-8s %-8s %n",
+                System.out.printf("%-6s %-8s %-11s %-8d %-9s %s%n",
                         each.getId(), each.getUrunIsmi(), each.getUretici(),
                         each.getMiktar(), each.getBirim(), each.getRaf()
                 );
             }
         }
+        fontColor("*".repeat(50), "red");
     }
 
     public void urunGirisi(int id, int miktar) {
@@ -57,8 +67,8 @@ public class DepoSistemi {
                     PojoUrun urun = w.get(id);
                     yeniMiktar = urun.getMiktar() + miktar;
                     urun.setMiktar(yeniMiktar);
-                    urunListele();
-                } else System.out.println("Ürün bulunamadı..");
+                    urunListele("ÜRÜNLER GİRİŞİ");
+                } else fontColor("Ürün bulunamadı..", "red");
             }
 
         }
@@ -74,9 +84,9 @@ public class DepoSistemi {
                     yeniMiktar = urun.getMiktar() - miktar;
                     if (yeniMiktar < 0) yeniMiktar = 0;
                     urun.setMiktar(yeniMiktar);
-                    urunListele();
+                    urunListele("ÜRÜNLER ÇIKIŞI");
 
-                } else System.out.println("Ürün bulunamadı..");
+                } else fontColor("Ürün bulunamadı..", "red");
             }
         }
     }
@@ -88,10 +98,31 @@ public class DepoSistemi {
                 if (each == id) {
                     PojoUrun urun = w.get(id);
                     urun.setRaf(raf);
-                    urunListele();
-                } else System.out.println("Ürün bulunamadı..");
+                    urunListele("ÜRÜNLER RAFLAMA");
+                } else fontColor("Ürün bulunamadı..", "red");
             }
         }
     }
 
+    public static void fontColor(String text, String color){
+        String renkKodu = RESET;
+
+        switch (color.toLowerCase()) {
+            case "red":
+                renkKodu = RED;
+                break;
+            case "green":
+                renkKodu = GREEN;
+                break;
+            case "yellow":
+                renkKodu = YELLOW;
+                break;
+            case "blue":
+                renkKodu = BLUE;
+                break;
+            default:
+                break;
+        }
+        System.out.println(renkKodu + text + RESET);
+    }
 }
