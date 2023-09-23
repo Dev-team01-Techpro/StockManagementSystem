@@ -7,13 +7,11 @@ public class Main {
 
     public static void starter() {
         Scanner scan = new Scanner(System.in);
-
         DepoSistemi depo = new DepoSistemi();
 
         boolean dongu = true;
 
         while (dongu) {
-
             DepoSistemi.fontColor("MENü", "yellow");
             DepoSistemi.fontColor("-".repeat(50), "blue");
             DepoSistemi.fontColor("1- Ürün tanımla", "green");
@@ -45,15 +43,9 @@ public class Main {
                     dongu = false;
                     break;
                 default:
-                    DepoSistemi.fontColor("Yanlış işlem yaptınız. Lütfen tekrar deneyin!","red");
+                    DepoSistemi.fontColor("Yanlış işlem yaptınız. Lütfen tekrar deneyin!", "red");
                     break;
             }
-
-
         }
-
-
     }
-
-
 }

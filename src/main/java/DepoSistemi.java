@@ -73,10 +73,11 @@ public class DepoSistemi {
                         yeniMiktar = urun.getMiktar() + miktar;
                         urun.setMiktar(yeniMiktar);
                         urunListele("ÜRÜN GİRİŞİ");
-                    } else fontColor("Ürün bulunamadı..", "red");
+                        return;
+                    }
                 }
-
             }
+            fontColor("Ürün bulunamadı..", "red");
         } catch (NumberFormatException e) {
             System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }
@@ -100,9 +101,11 @@ public class DepoSistemi {
                         if (yeniMiktar < 0) yeniMiktar = 0;
                         urun.setMiktar(yeniMiktar);
                         urunListele("ÜRÜN ÇIKIŞI");
-                    } else fontColor("Ürün bulunamadı..", "red");
+                        return;
+                    }
                 }
             }
+            fontColor("Ürün bulunamadı..", "red");
         } catch (NumberFormatException e) {
             System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }
@@ -121,9 +124,11 @@ public class DepoSistemi {
                         PojoUrun urun = w.get(id);
                         urun.setRaf(raf);
                         urunListele("ÜRÜN RAFLAMA");
-                    } else fontColor("Ürün bulunamadı!", "red");
+                        return;
+                    }
                 }
             }
+            fontColor("Ürün bulunamadı!", "red");
         } catch (NumberFormatException e) {
             System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }

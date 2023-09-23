@@ -5,10 +5,10 @@ public class PojoUrun {
     private String uretici;
     private int miktar = 0;
     private String birim;
-    private String raf = "-" ;
+    private String raf = "-";
 
 
-    public PojoUrun(){
+    public PojoUrun() {
     }
 
     public PojoUrun(int id, String urunIsmi, String uretici, String birim) {
