@@ -42,9 +42,8 @@ public class DepoSistemi {
 
 
     public void urunListele(String title) {
-
         fontColor(title, "green");
-        fontColor("id     ismi    ureticisi   miktar    birimi    raf", "yellow");
+        fontColor("ID     Ürün Adı    Üretici   Miktar    Birimi    Raf", "yellow");
         fontColor("-".repeat(50), "blue");
 
         for (HashMap<Integer, PojoUrun> w : list) {
@@ -60,67 +59,79 @@ public class DepoSistemi {
     }
 
     public void urunGirisi() {
+        try {
+            System.out.println("Lütfen ID giriniz.");
+            int id = Integer.parseInt(scan.nextLine());
+            System.out.println("Ürün miktar giriniz.");
+            int miktar = Integer.parseInt(scan.nextLine());
 
-        System.out.println("Lutfen id ve miktar giriniz.");
-        int id = Integer.parseInt(scan.nextLine());
-        int miktar = Integer.parseInt(scan.nextLine());
+            int yeniMiktar;
+            for (HashMap<Integer, PojoUrun> w : list) {
+                for (Integer each : w.keySet()) {
+                    if (each == id) {
+                        PojoUrun urun = w.get(id);
+                        yeniMiktar = urun.getMiktar() + miktar;
+                        urun.setMiktar(yeniMiktar);
+                        urunListele("ÜRÜN GİRİŞİ");
+                    } else fontColor("Ürün bulunamadı..", "red");
+                }
 
-        int yeniMiktar;
-        for (HashMap<Integer, PojoUrun> w : list) {
-            for (Integer each : w.keySet()) {
-                if (each == id) {
-                    PojoUrun urun = w.get(id);
-                    yeniMiktar = urun.getMiktar() + miktar;
-                    urun.setMiktar(yeniMiktar);
-                    urunListele("ÜRÜN GİRİŞİ");
-                } else fontColor("Ürün bulunamadı..", "red");
             }
-
+        } catch (NumberFormatException e) {
+            System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }
+
+
     }
 
     public void urunCikisi() {
+        try {
+            System.out.println("Lütfen ID giriniz.");
+            int id = Integer.parseInt(scan.nextLine());
+            System.out.println("Miktar giriniz.");
+            int miktar = Integer.parseInt(scan.nextLine());
 
-        System.out.println("Lutfen id ve miktar giriniz.");
-        int id = Integer.parseInt(scan.nextLine());
-        int miktar = Integer.parseInt(scan.nextLine());
-
-        int yeniMiktar;
-        for (HashMap<Integer, PojoUrun> w : list) {
-            for (Integer each : w.keySet()) {
-                if (each == id) {
-                    PojoUrun urun = w.get(id);
-                    yeniMiktar = urun.getMiktar() - miktar;
-                    if (yeniMiktar < 0) yeniMiktar = 0;
-                    urun.setMiktar(yeniMiktar);
-                    urunListele("ÜRÜN ÇIKIŞI");
-
-                } else fontColor("Ürün bulunamadı..", "red");
+            int yeniMiktar;
+            for (HashMap<Integer, PojoUrun> w : list) {
+                for (Integer each : w.keySet()) {
+                    if (each == id) {
+                        PojoUrun urun = w.get(id);
+                        yeniMiktar = urun.getMiktar() - miktar;
+                        if (yeniMiktar < 0) yeniMiktar = 0;
+                        urun.setMiktar(yeniMiktar);
+                        urunListele("ÜRÜN ÇIKIŞI");
+                    } else fontColor("Ürün bulunamadı..", "red");
+                }
             }
+        } catch (NumberFormatException e) {
+            System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }
     }
 
     public void urunRafaKoy() {
+        try {
+            System.out.println("Lütfen ID giriniz.");
+            int id = Integer.parseInt(scan.nextLine());
+            System.out.println("Lütfen raf bilgisini giriniz.");
+            String raf = scan.nextLine();
 
-        System.out.println("Lütfen ID giriniz.");
-        int id = Integer.parseInt(scan.nextLine());
-        System.out.println("Lütfen raf bilgisini giriniz.");
-        String raf = scan.nextLine();
-
-        for (HashMap<Integer, PojoUrun> w : list) {
-            for (Integer each : w.keySet()) {
-                if (each == id) {
-                    PojoUrun urun = w.get(id);
-                    urun.setRaf(raf);
-                    urunListele("ÜRÜN RAFLAMA");
-                } else fontColor("Ürün bulunamadı..", "red");
+            for (HashMap<Integer, PojoUrun> w : list) {
+                for (Integer each : w.keySet()) {
+                    if (each == id) {
+                        PojoUrun urun = w.get(id);
+                        urun.setRaf(raf);
+                        urunListele("ÜRÜN RAFLAMA");
+                    } else fontColor("Ürün bulunamadı!", "red");
+                }
             }
+        } catch (NumberFormatException e) {
+            System.err.println("Hatalı giriş! ID ve miktar tam sayı olmalıdır.");
         }
     }
 
     public static void fontColor(String text, String color) {
-        String renkKodu = RESET;
 
+        String renkKodu = RESET;
         switch (color.toLowerCase()) {
             case "red":
                 renkKodu = RED;

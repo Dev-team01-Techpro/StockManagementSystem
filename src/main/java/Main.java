@@ -5,7 +5,6 @@ public class Main {
         starter();
     }
 
-
     public static void starter() {
         Scanner scan = new Scanner(System.in);
 
@@ -31,7 +30,7 @@ public class Main {
                     depo.urunTanimlama(DepoSistemi.list);
                     break;
                 case 2:
-                    depo.urunListele("ÜRÜN LİSTESİ"); //burda titel yazicaz demissiniz o kismi anlamadim.Testerlar baksin.
+                    depo.urunListele("ÜRÜN LİSTESİ");
                     break;
                 case 3:
                     depo.urunGirisi();

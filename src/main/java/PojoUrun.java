@@ -9,7 +9,6 @@ public class PojoUrun {
 
 
     public PojoUrun(){
-
     }
 
     public PojoUrun(int id, String urunIsmi, String uretici, String birim) {
