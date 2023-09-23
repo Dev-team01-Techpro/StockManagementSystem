@@ -58,7 +58,11 @@ public class DepoSistemi {
         fontColor("*".repeat(50), "red");
     }
 
-    public void urunGirisi(int id, int miktar) {
+    public void urunGirisi() {
+
+        System.out.println("Lutfen id ve miktar giriniz.");
+       int id=Integer.parseInt(scan.nextLine());
+       int miktar=Integer.parseInt(scan.nextLine());
 
         int yeniMiktar;
         for (HashMap<Integer, PojoUrun> w : list) {
@@ -74,7 +78,11 @@ public class DepoSistemi {
         }
     }
 
-    public void urunCikisi(int id, int miktar) {
+    public void urunCikisi() {
+
+        System.out.println("Lutfen id ve miktar giriniz.");
+       int id=Integer.parseInt(scan.nextLine());
+       int miktar=Integer.parseInt(scan.nextLine());
 
         int yeniMiktar;
         for (HashMap<Integer, PojoUrun> w : list) {
@@ -91,7 +99,11 @@ public class DepoSistemi {
         }
     }
 
-    public void urunRafaKoy(int id, String raf) {
+    public void urunRafaKoy() {
+
+        System.out.println("Lutfen id ve raf bilgisini yaziniz.");
+       int id=Integer.parseInt(scan.nextLine());
+       String raf=scan.nextLine();
 
         for (HashMap<Integer, PojoUrun> w : list) {
             for (Integer each : w.keySet()) {
