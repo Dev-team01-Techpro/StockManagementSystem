@@ -13,13 +13,14 @@ public class DepoSistemi {
     Scanner scan = new Scanner(System.in);
     static int urunId = 0;
     static ArrayList<HashMap<Integer, PojoUrun>> list = new ArrayList<>();
+
     public void urunTanimlama(ArrayList<HashMap<Integer, PojoUrun>> list) {
 
-        System.out.println("Lutfen urun ismi giriniz.");
+        System.out.println("Lütfen ürün adı giriniz.");
         String urunIsmi = scan.nextLine();
-        System.out.println("Lutfen uretici giriniz.");
+        System.out.println("Lütfen üretici giriniz.");
         String uretici = scan.nextLine();
-        System.out.println("Lutfen birim giriniz.");
+        System.out.println("Lütfen birim giriniz.");
         String birim = scan.nextLine();
         System.out.println();
 
@@ -61,8 +62,8 @@ public class DepoSistemi {
     public void urunGirisi() {
 
         System.out.println("Lutfen id ve miktar giriniz.");
-       int id=Integer.parseInt(scan.nextLine());
-       int miktar=Integer.parseInt(scan.nextLine());
+        int id = Integer.parseInt(scan.nextLine());
+        int miktar = Integer.parseInt(scan.nextLine());
 
         int yeniMiktar;
         for (HashMap<Integer, PojoUrun> w : list) {
@@ -71,7 +72,7 @@ public class DepoSistemi {
                     PojoUrun urun = w.get(id);
                     yeniMiktar = urun.getMiktar() + miktar;
                     urun.setMiktar(yeniMiktar);
-                    urunListele("ÜRÜNLER GİRİŞİ");
+                    urunListele("ÜRÜN GİRİŞİ");
                 } else fontColor("Ürün bulunamadı..", "red");
             }
 
@@ -81,8 +82,8 @@ public class DepoSistemi {
     public void urunCikisi() {
 
         System.out.println("Lutfen id ve miktar giriniz.");
-       int id=Integer.parseInt(scan.nextLine());
-       int miktar=Integer.parseInt(scan.nextLine());
+        int id = Integer.parseInt(scan.nextLine());
+        int miktar = Integer.parseInt(scan.nextLine());
 
         int yeniMiktar;
         for (HashMap<Integer, PojoUrun> w : list) {
@@ -92,7 +93,7 @@ public class DepoSistemi {
                     yeniMiktar = urun.getMiktar() - miktar;
                     if (yeniMiktar < 0) yeniMiktar = 0;
                     urun.setMiktar(yeniMiktar);
-                    urunListele("ÜRÜNLER ÇIKIŞI");
+                    urunListele("ÜRÜN ÇIKIŞI");
 
                 } else fontColor("Ürün bulunamadı..", "red");
             }
@@ -101,22 +102,23 @@ public class DepoSistemi {
 
     public void urunRafaKoy() {
 
-        System.out.println("Lutfen id ve raf bilgisini yaziniz.");
-       int id=Integer.parseInt(scan.nextLine());
-       String raf=scan.nextLine();
+        System.out.println("Lütfen ID giriniz.");
+        int id = Integer.parseInt(scan.nextLine());
+        System.out.println("Lütfen raf bilgisini giriniz.");
+        String raf = scan.nextLine();
 
         for (HashMap<Integer, PojoUrun> w : list) {
             for (Integer each : w.keySet()) {
                 if (each == id) {
                     PojoUrun urun = w.get(id);
                     urun.setRaf(raf);
-                    urunListele("ÜRÜNLER RAFLAMA");
+                    urunListele("ÜRÜN RAFLAMA");
                 } else fontColor("Ürün bulunamadı..", "red");
             }
         }
     }
 
-    public static void fontColor(String text, String color){
+    public static void fontColor(String text, String color) {
         String renkKodu = RESET;
 
         switch (color.toLowerCase()) {
